@@ -33,7 +33,6 @@ namespace Counter.Views
                         Filename = file
                     });
                 }
-
             }
         }
 
@@ -71,7 +70,7 @@ namespace Counter.Views
             var button = sender as Button;
             var count = button.BindingContext as Models.Count;
 
-            // Usuniêcie licznika
+            // Usuñ licznik
             if (File.Exists(count.Filename))
             {
                 File.Delete(count.Filename);
@@ -81,7 +80,7 @@ namespace Counter.Views
 
         private async void AddCounter_Clicked(object sender, EventArgs e)
         {
-            
+
             await Shell.Current.GoToAsync("///CounterPage");
         }
     }

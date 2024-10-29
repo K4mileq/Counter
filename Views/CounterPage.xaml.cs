@@ -12,12 +12,20 @@ namespace Counter.Views
         {
             if (BindingContext is Models.Count count)
             {
-                // Zapisujemy dane licznika do pliku
+                // Sprawdza czy licznik ma nazwe
+                if (string.IsNullOrWhiteSpace(count.Title))
+                {
+                    
+                    await DisplayAlert("ERROR", "Enter counter title", "OK");
+                    return;
+                }
+
+                // Zapis do pliku
                 var fileName = Path.Combine(FileSystem.AppDataDirectory, $"{Guid.NewGuid()}.counter.txt");
                 count.Filename = fileName;
                 File.WriteAllText(fileName, $"{count.Title}|{count.Value}");
 
-                // Przekierowanie po zapisaniu licznika
+                
                 await Shell.Current.GoToAsync("//AllCounterPage");
             }
         }
