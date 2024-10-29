@@ -15,7 +15,9 @@
                 Margin="20"
                 Clicked="AddCounter_Clicked" />
         
-        <CollectionView ItemsSource="{Binding Counters}">
+        
+        
+        <CollectionView ItemsSource="{Binding Counters}" HeightRequest="750">
             
             
             
