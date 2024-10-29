@@ -17,7 +17,7 @@
         
         
         
-        <CollectionView ItemsSource="{Binding Counters}" HeightRequest="750">
+        <CollectionView ItemsSource="{Binding Counters}" HeightRequest="700">
             
             
             
