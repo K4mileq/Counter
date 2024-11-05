@@ -20,6 +20,14 @@ namespace Counter.Views
         {
             // £adowanie zapisanych liczników z plików
             Counters.Clear();
+
+            Counters.Add(new Models.Count
+            {
+                Title = "test",
+                Value = 0,
+                Filename = Path.Combine(FileSystem.AppDataDirectory, "test.counter.txt")
+            });
+
             var files = Directory.GetFiles(FileSystem.AppDataDirectory, "*.counter.txt");
             foreach (var file in files)
             {
@@ -62,7 +70,7 @@ namespace Counter.Views
         //{
         //    var button = sender as Button;
         //    var count = button.BindingContext as Models.Count;
-        //    File.WriteAllText(count.Filename, $"{count.Title}|{count.Value}|{count.BackgroundColor}");
+        //    File.WriteAllText(count.Filename, $"{count.Title}|{count.Value}");
         //}
 
         private void DeleteButton_Clicked(object sender, EventArgs e)
